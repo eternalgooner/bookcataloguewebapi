@@ -1,0 +1,103 @@
+
+endpoints to implement
+
+- You are required to create a RESTful web service, which provides URI end points for CRUD
+operations on Book resources
+
+- you will NOT
+actually delete, or save in ANY database, but will be required to emulate this using Memory data
+structures (i.e. ArrayLists)
+
+- The web service will return ONLY JSON. The web service accepts, where appropriate, JSON
+input.
+
+------------------------------------------------------------------------
+http://localhost:49000/webapi/rest/books
+------------------------------------------------------------------------
+1. Create​ ​a​ ​service​ ​to​ ​return​ ​a​ ​list​ ​of​ ​all​ ​the​ ​books​ ​available.​ ​(20%)
+Create an ArrayList storing five Book instances, The Book class is provided. When the
+request for all books is invoked return this list to the caller in JSON format. This should be
+contained in an annotated method.
+Server​ ​output​ ​example:
+[ { “id”: 1, “title”: “Lean for Life”, “author”: “Louise Parker”, “publisher”: “BeazleyBooks” },
+{ “id”: 2, “title”: “The Midnight Gang”, “author”: “David Walliams”, “publisher”:
+“HarperCollinsChildren’s books” },
+{ “id”: 3, “title”: “Born to Run”, “author”: “Bruce Springsteen”, “publisher”:
+“Simon&Schuster UK” } ]
+
+============================================================================================
+
+
+
+------------------------------------------------------------------------
+http://localhost:49000/webapi/rest/book/4
+------------------------------------------------------------------------
+2. Create​ ​a​ ​service​ ​to​ ​return​ ​a​ ​Book​ ​resource​ ​representation​ ​(20%)
+Use the same list as before, if the Book ID specified (by a URL path parameter) is present
+return that Book in JSON format, otherwise return a sensible HTTP error code and JSON
+output. This should be contained is an annotated method.
+Server​ ​sample​ ​output:
+{ “id”: 1, “title”: “Lean for Life”, “author”: “Louise Parker”, “publisher”: “BeazleyBooks” }
+
+=============================================================================================
+
+
+
+------------------------------------------------------------------------
+http://localhost:49000/webapi/rest/book/create
+------------------------------------------------------------------------
+3. Create​ ​a​ ​service​ ​to​ ​create​ ​a​ ​Book​ ​(15%)
+On the server there should be a method which creates a Book object from the JSON input
+(by automated conversion preferably); it is not necessary to save this to a database or the
+list. Return a sensible response, with the URL of the new resource (if this were a real
+system). This should all be contained in a properly annotated method.
+Example:​ ​public Response createBook(String requestBody)
+The argument requestBody will be the HTTP request body passed up from the client.
+Example​ ​input​ ​to​ ​the​ ​server:
+{“title”: “A life in parts”, “author”: “Bryan Cranston”, “publisher”: “Orion” }
+Sample​ ​server​ ​output:
+{“book_created”:true, “uri”: “/api/books/4” }
+
+ACTUAL
+REQUEST;
+{
+	"title": "created title",
+	"author": "created author",
+	"piblisher": "created pub"
+}
+
+RESPONSE:
+{
+    "id": 0,
+    "errorCode": 0,
+    "info": "webapi/rest/book/6"
+}
+=========================================================================================
+
+
+
+-----------------------------------------------------
+http://localhost:49000/webapi/rest/book/delete/4
+-----------------------------------------------------
+4. Create​ ​a​ ​service​ ​to​ ​delete​ ​a​ ​Book​ ​(20%)
+Examine the input parameter and return a message indicating that the resource was
+removed. You will return an affirmative message stating that the resource is deleted. This
+should all be contained in a properly annotated method.
+Sample​ ​server​ ​output:
+{“book”: { “id”: 1, “title”: “Lean for Life”, “author”: “Louise Parker”, “publisher”:
+“BeazleyBooks” }, “deleted-status”: “success” }
+
+==========================================================================================
+
+
+
+5. Expand​ ​the​ ​client​ ​(you​ ​may​ ​do​ ​this​ ​as​ ​you​ ​go​ ​or​ ​afterwards)​ ​(15%)
+Expand the client to provide same functionality for points 1 and 2 but using XML instead
+of JSON.
+The solutions should be written using the JAX-RS client libraries as given in the tutorial
+files.
+
+
+6. cURL/postman​ ​Client​ ​(10%)
+Provide cURL/postman commands to invoke each of the above defined HTTP requests.
+Examples of cURL are to be found (week4 Lab Practice API Design).

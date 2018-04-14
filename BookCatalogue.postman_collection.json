@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "ca179b89-3282-42a1-857f-c4179e971382",
+		"name": "BookCatalogue",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CreateBook",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"title\": \"created title2\",\r\n\t\"author\": \"created author\",\r\n\t\"piblisher\": \"created pub\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:49000/webapi/rest/book/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49000",
+					"path": [
+						"webapi",
+						"rest",
+						"book",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteBook",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"created title\",\n\t\"author\": \"created author\",\n\t\"piblisher\": \"created pub\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:49000/webapi/rest/book/delete/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49000",
+					"path": [
+						"webapi",
+						"rest",
+						"book",
+						"delete",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllBooks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:49000/webapi/rest/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49000",
+					"path": [
+						"webapi",
+						"rest",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetBookById",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:49000/webapi/rest/book/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49000",
+					"path": [
+						"webapi",
+						"rest",
+						"book",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NoBookFoundById",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:49000/webapi/rest/book/48",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49000",
+					"path": [
+						"webapi",
+						"rest",
+						"book",
+						"48"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
